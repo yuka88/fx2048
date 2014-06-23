@@ -236,6 +236,15 @@ public class GameManager extends Group {
     }
 
     private void createScore() {
+        //VBox vAiuto = new VBox();
+        //vAiuto.setAlignment(Pos.CENTER);
+        
+        Button aiuto = new Button("Aiuto"); //Crea bottone per giocatore automatico
+        aiuto.getStyleClass().add("help");
+        //aiuto.setLayoutX(300);
+        //aiuto.setLayoutY(-100);
+        //vAiuto.getChildren().add(aiuto);
+        
         Label lblTitle = new Label("2048");
         lblTitle.getStyleClass().add("title");
         Label lblSubtitle = new Label("FX");
@@ -251,8 +260,11 @@ public class GameManager extends Group {
         lblScore.getStyleClass().add("score");
         lblScore.textProperty().bind(gameScoreProperty.asString());
         vScore.getChildren().addAll(lblTit, lblScore);
+        
+        
+       
 
-        hTop.getChildren().addAll(lblTitle, lblSubtitle, hFill, vScore);
+        hTop.getChildren().addAll(lblTitle, lblSubtitle, hFill, aiuto, vScore);
         hTop.setMinSize(GRID_WIDTH, TOP_HEIGHT);
         hTop.setPrefSize(GRID_WIDTH, TOP_HEIGHT);
         hTop.setMaxSize(GRID_WIDTH, TOP_HEIGHT);
@@ -264,6 +276,8 @@ public class GameManager extends Group {
 
         getChildren().add(lblPoints);
     }
+    
+    
 
     private void createGrid() {
         final double arcSize = CELL_SIZE / 6d;
