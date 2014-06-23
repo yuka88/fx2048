@@ -111,8 +111,8 @@
 }
 .tile-4    { 
     -fx-font-size: 55px;
-    -fx-text-fill: #776e65;
-    -fx-background-color: #ede0c8; 
+    -fx-text-fill: #796e65;
+    -fx-background-color: #f7cca7; 
     -fx-background-radius: 3;
     -fx-border-radius: 3;
 }
@@ -200,4 +200,15 @@
     -fx-background-color: #3c3a32; 
     -fx-background-radius: 3;
     -fx-border-radius: 3;
+}
+.help {
+    -fx-background-color: #bbada0;
+    -fx-padding: 10 10 10 10;
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+    -fx-border-color: #8f7a66; 
+    -fx-border-width: 2;   
+    
 }
