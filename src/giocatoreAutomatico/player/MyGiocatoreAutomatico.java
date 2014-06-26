@@ -11,13 +11,13 @@ import static game2048.Direction.*;
 import giocatoreAutomatico.GiocatoreAutomatico;
 import giocatoreAutomatico.Griglia;
 import java.util.Random;
+import java.util.HashMap;
 
 /**
  *
  * @author sonia
  */
 public class MyGiocatoreAutomatico implements GiocatoreAutomatico {
-    private GameManager gameManager;
     
     /**   restituisce 0=ALTO; 1=DX; 2=BASSO; 3=SX , ovvero la mossa che il giocatore automatico intende fare.
      * In input prende una griglia di gioco 4x4 che contiene la situazione del gioco corrente.
@@ -25,30 +25,48 @@ public class MyGiocatoreAutomatico implements GiocatoreAutomatico {
      * @see Griglia
      */
     
-    public MyGiocatoreAutomatico(GameManager gameManager){
-            this.gameManager = gameManager;
-    }
+    public MyGiocatoreAutomatico(){}
     
     
     public int prossimaMossa(Griglia g){
-        Griglia grigliaNuova = new MyGriglia();
         Random rand = new Random();
         int mossa;
+        boolean fail = true;
         do{
             mossa = rand.nextInt(3);
-            if(mossa==0) {
-                gameManager.move(UP);
+            if(mossa==2){
+                for(int i=0; i<=2; i++)
+                    for(int j=0; j<=3; j++){
+                        Location loc = new Location(i,j);
+                        if(g.get(loc)==-1)
+                            fail = false;
+                    }
             }
-            if(mossa==1) {
-                gameManager.move(RIGHT);
+            if(mossa==1){
+                for(int i=0; i<=3; i++)
+                    for(int j=0; j<=2; j++){
+                        Location loc = new Location(i,j);
+                        if(g.get(loc)==-1)
+                            fail = false;
+                    }
             }
-            if(mossa==2) {
-                gameManager.move(DOWN);
+            if(mossa==0){
+                for(int i=1; i<=3; i++)
+                    for(int j=0; j<=3; j++){
+                        Location loc = new Location(i,j);
+                        if(g.get(loc)==-1)
+                            fail = false;
+                    }
             }
-            if(mossa==3) {
-                gameManager.move(LEFT);
+            if(mossa==3){
+                for(int i=0; i<=3; i++)
+                    for(int j=1; j<=3; j++){
+                        Location loc = new Location(i,j);
+                        if(g.get(loc)==-1)
+                            fail = false;
+                    }
             }
-        }while(grigliaNuova.equals(g));
+        }while(fail);
         return mossa;
     }
     
