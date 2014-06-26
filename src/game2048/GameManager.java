@@ -234,6 +234,18 @@ public class GameManager extends Group {
 
         return foundMergeableTile.getValue();
     }
+    private void gameHelp(){
+        giocatoreAutomatico.player.MyGiocatoreAutomatico giocatore= new giocatoreAutomatico.player.MyGiocatoreAutomatico(this);
+        giocatoreAutomatico.MyGriglia griglia= new giocatoreAutomatico.MyGriglia();
+        for (int i=0; i<=3; i++)
+            for(int j=0; j<=3; j++){
+                    Location old=new Location(i,j);
+                    if (this.gameGrid.get(old).getValue()==null)
+                        griglia.put(new Location(i,j),-1 );
+                    else
+                        griglia.put(new Location(i,j), this.gameGrid.get(old).getValue());
+            }
+  }
 
     private void createScore() {
         //VBox vAiuto = new VBox();
@@ -241,6 +253,9 @@ public class GameManager extends Group {
         
         Button aiuto = new Button("Aiuto"); //Crea bottone per giocatore automatico
         aiuto.getStyleClass().add("help");
+        aiuto.setOnTouchPressed(e->gameHelp());
+        aiuto.setOnAction(e->gameHelp());
+        
         //aiuto.setLayoutX(300);
         //aiuto.setLayoutY(-100);
         //vAiuto.getChildren().add(aiuto);
