@@ -1,5 +1,9 @@
 package game2048;
 
+import static game2048.Direction.DOWN;
+import static game2048.Direction.LEFT;
+import static game2048.Direction.RIGHT;
+import static game2048.Direction.UP;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -235,16 +239,29 @@ public class GameManager extends Group {
         return foundMergeableTile.getValue();
     }
     private void gameHelp(){
-        giocatoreAutomatico.player.MyGiocatoreAutomatico giocatore= new giocatoreAutomatico.player.MyGiocatoreAutomatico(this);
+        giocatoreAutomatico.player.MyGiocatoreAutomatico giocatore= new giocatoreAutomatico.player.MyGiocatoreAutomatico();
         giocatoreAutomatico.MyGriglia griglia= new giocatoreAutomatico.MyGriglia();
         for (int i=0; i<=3; i++)
             for(int j=0; j<=3; j++){
                     Location old=new Location(i,j);
-                    if (this.gameGrid.get(old).getValue()==null)
-                        griglia.put(new Location(i,j),-1 );
+                    if (this.gameGrid.get(old)==null)
+                        griglia.put(new Location(i,j), -1);
                     else
                         griglia.put(new Location(i,j), this.gameGrid.get(old).getValue());
             }
+        int mossa = giocatore.prossimaMossa(griglia);
+        if(mossa==0) {
+               this.move(UP);
+           }
+        if(mossa==1) {
+            this.move(RIGHT);
+        }
+        if(mossa==2) {
+            this.move(DOWN);
+        }
+        if(mossa==3) {
+            this.move(LEFT);
+        }
   }
 
     private void createScore() {
