@@ -30,19 +30,20 @@ public class MyGiocatoreAutomatico implements GiocatoreAutomatico {
     
     public int prossimaMossa(Griglia g){
         Random rand = new Random();
-        int mossa;
         boolean fail = true;
+        int mossa;
         do{
-            mossa = rand.nextInt(3);
-            
+            mossa = rand.nextInt(4);
             if(mossa==0){ //mossa UP (sale)
                 for(int i=0; i<=2; i++)
                     for(int j=0; j<=3; j++){
                         Location loc = new Location(i,j);
                         if(g.get(loc)==-1){
-                            for(int k=3; k>i; k--)
-                                if(g.get(new Location(k,j))!=-1)
+                            for(int k=i+1; k<=3; k++)
+                                if(g.get(new Location(k,j))!=-1){
                                     fail = false;
+                                    break;
+                                }
                         }
                     }
             }
@@ -52,8 +53,10 @@ public class MyGiocatoreAutomatico implements GiocatoreAutomatico {
                         Location loc = new Location(i,j);
                         if(g.get(loc)==-1){
                             for(int k=0; k<j; k++)
-                                if(g.get(new Location(i,k))!=-1)
+                                if(g.get(new Location(i,k))!=-1){
                                     fail = false;
+                                    break;
+                                }
                         }
                     }
             }
@@ -63,8 +66,10 @@ public class MyGiocatoreAutomatico implements GiocatoreAutomatico {
                         Location loc = new Location(i,j);
                         if(g.get(loc)==-1){
                             for(int k=0; k<i; k++)
-                                if(g.get(new Location(k,j))!=-1)
+                                if(g.get(new Location(k,j))!=-1){
                                     fail = false;
+                                    break;
+                                }
                         }
                     }
             }
@@ -73,12 +78,15 @@ public class MyGiocatoreAutomatico implements GiocatoreAutomatico {
                     for(int j=0; j<=2; j++){
                         Location loc = new Location(i,j);
                         if(g.get(loc)==-1){
-                            for(int k=3; k>j; k--)
-                                if(g.get(new Location(i,k))!=-1)
+                            for(int k=j+1; k<=3; k++)
+                                if(g.get(new Location(i,k))!=-1){
                                     fail = false;
+                                    break;
+                                }
                         }
                     }
             }
+            System.out.println(mossa);
         }while(fail);
         return mossa;
     }
