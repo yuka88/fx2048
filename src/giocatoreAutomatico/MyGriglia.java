@@ -5,17 +5,17 @@
  */
 
 package giocatoreAutomatico;
-import java.util.TreeMap;
+import java.util.HashMap;
 import game2048.*;
 
 /**
  *
  * @author ubuntu
  */
-public class MyGriglia extends TreeMap<Location,Integer> implements Griglia{
-    private TreeMap<Location,Integer> griglia;
+public class MyGriglia extends HashMap<Location,Integer> implements Griglia{
+    private HashMap<Location,Integer> griglia;
     public MyGriglia(){
-        this.griglia= new TreeMap<Location,Integer>();
+        this.griglia= new HashMap<Location,Integer>();
     }
            
                     
