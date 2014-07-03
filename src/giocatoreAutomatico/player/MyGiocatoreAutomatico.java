@@ -32,10 +32,16 @@ public class MyGiocatoreAutomatico implements GiocatoreAutomatico {
         Random rand = new Random();
         boolean fail = true;
         int mossa;
+        boolean a=false;
+        boolean b=false;
+        boolean c=false;
+        boolean d=false;
+       
         do{
             mossa = rand.nextInt(4);
+            
             if(mossa==0){ //mossa UP (sale)
-               
+                a=true;
                 for(int i=0; i<=3; i++)
                     for(int j=0; j<=2; j++){
                         Location loc = new Location(i,j);
@@ -49,7 +55,7 @@ public class MyGiocatoreAutomatico implements GiocatoreAutomatico {
                     } 
             }
             if(mossa==1){ //mossa RIGHT
-                
+                b=true;
                 for(int i=1; i<=3; i++)
                     for(int j=0; j<=3; j++){
                         Location loc = new Location(i,j);
@@ -63,6 +69,7 @@ public class MyGiocatoreAutomatico implements GiocatoreAutomatico {
                     }
             }
             if(mossa==2){ //mossa DOWN (scende)
+                c=true;
                 for(int i=0; i<=3; i++)
                     for(int j=1; j<=3; j++){
                         Location loc = new Location(i,j);
@@ -76,6 +83,7 @@ public class MyGiocatoreAutomatico implements GiocatoreAutomatico {
                     }
             }
             if(mossa==3){ //mossa LEFT
+                d=true;
                 for(int i=0; i<=2; i++)
                     for(int j=0; j<=3; j++){
                         Location loc = new Location(i,j);
@@ -88,7 +96,9 @@ public class MyGiocatoreAutomatico implements GiocatoreAutomatico {
                         }
                     }
             }
-            System.out.println(mossa);
+            if(a && b && c && d)
+              return mossa;  
+           
         }while(fail);
         return mossa;
     }
