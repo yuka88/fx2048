@@ -7,27 +7,22 @@
 package giocatoreAutomatico.player;
 
 import game2048.*;
-import static game2048.Direction.*;
 import giocatoreAutomatico.GiocatoreAutomatico;
 import giocatoreAutomatico.Griglia;
 import java.util.Random;
-import java.util.HashMap;
 
 /**
- *
- * @author sonia
+ * @author Sonia Cannas e Noemi Sarritzu
  */
 public class MyGiocatoreAutomatico implements GiocatoreAutomatico {
+    
+    public MyGiocatoreAutomatico(){}
     
     /**   restituisce 0=ALTO; 1=DX; 2=BASSO; 3=SX , ovvero la mossa che il giocatore automatico intende fare.
      * In input prende una griglia di gioco 4x4 che contiene la situazione del gioco corrente.
      * 
      * @see Griglia
      */
-    
-    public MyGiocatoreAutomatico(){}
-    
-    
     public int prossimaMossa(Griglia g){
         Random rand = new Random();
         boolean fail = true;
