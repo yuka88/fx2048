@@ -4,7 +4,7 @@ import game2048.*;
 
 
 /**
- * @author Sonia Cannas
+ * @author Sonia Cannas e Noemi Sarritzu
  */
 public interface GiocatoreAutomatico {
     
