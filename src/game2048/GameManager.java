@@ -239,8 +239,8 @@ public class GameManager extends Group {
         return foundMergeableTile.getValue();
     }
     private void gameHelp(){
-        giocatoreAutomatico.player.MyGiocatoreAutomatico giocatore= new giocatoreAutomatico.player.MyGiocatoreAutomatico();
-        giocatoreAutomatico.MyGriglia griglia= new giocatoreAutomatico.MyGriglia();
+        giocatoreAutomatico.player.MyGiocatoreAutomatico giocatore = new giocatoreAutomatico.player.MyGiocatoreAutomatico();
+        giocatoreAutomatico.MyGriglia griglia = new giocatoreAutomatico.MyGriglia();
         for (int i=0; i<=3; i++)
             for(int j=0; j<=3; j++){
                     Location old=new Location(i,j);
@@ -265,17 +265,12 @@ public class GameManager extends Group {
   }
 
     private void createScore() {
-        //VBox vAiuto = new VBox();
-        //vAiuto.setAlignment(Pos.CENTER);
         
-        Button aiuto = new Button("Aiuto"); //Crea bottone per giocatore automatico
+        Button aiuto = new Button("AIUTO"); //Crea bottone per giocatore automatico
         aiuto.getStyleClass().add("help");
         aiuto.setOnTouchPressed(e->gameHelp());
         aiuto.setOnAction(e->gameHelp());
         
-        //aiuto.setLayoutX(300);
-        //aiuto.setLayoutY(-100);
-        //vAiuto.getChildren().add(aiuto);
         
         Label lblTitle = new Label("2048");
         lblTitle.getStyleClass().add("title");
@@ -294,9 +289,12 @@ public class GameManager extends Group {
         vScore.getChildren().addAll(lblTit, lblScore);
         
         
+        HBox hBox = new HBox();
+        hBox.getChildren().addAll(aiuto, vScore);
+        hBox.setSpacing(20.0); //In your case
        
 
-        hTop.getChildren().addAll(lblTitle, lblSubtitle, hFill, aiuto, vScore);
+        hTop.getChildren().addAll(lblTitle, lblSubtitle, hFill, hBox);
         hTop.setMinSize(GRID_WIDTH, TOP_HEIGHT);
         hTop.setPrefSize(GRID_WIDTH, TOP_HEIGHT);
         hTop.setMaxSize(GRID_WIDTH, TOP_HEIGHT);
