@@ -13,15 +13,17 @@ import java.util.Random;
 
 /**
  * @author Sonia Cannas e Noemi Sarritzu
+ * Classe che implementa l'interfaccia GiocatoreAutomatico
  */
 public class MyGiocatoreAutomatico implements GiocatoreAutomatico {
     
     public MyGiocatoreAutomatico(){}
     
-    /**   restituisce 0=ALTO; 1=DX; 2=BASSO; 3=SX , ovvero la mossa che il giocatore automatico intende fare.
-     * In input prende una griglia di gioco 4x4 che contiene la situazione del gioco corrente.
+    /**
+     * Genera una mossa random a partire dalla griglia del gioco
+     * @param  g griglia del gioco
+     * @return mossa intero rappresentante la mossa automatica
      * 
-     * @see Griglia
      */
     public int prossimaMossa(Griglia g){
         Random rand = new Random();
