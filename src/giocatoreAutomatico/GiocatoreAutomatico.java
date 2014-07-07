@@ -5,6 +5,7 @@ import game2048.*;
 
 /**
  * @author Sonia Cannas e Noemi Sarritzu
+ * Interfaccia che definisce un giocatore automatico 
  */
 public interface GiocatoreAutomatico {
     
