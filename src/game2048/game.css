@@ -212,4 +212,7 @@
     -fx-border-color: #8f7a66;
     -fx-border-width: 2;
 }
+.help:pressed {
+    -fx-background-color:skyblue;
+}
 
