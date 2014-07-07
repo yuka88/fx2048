@@ -238,6 +238,9 @@ public class GameManager extends Group {
 
         return foundMergeableTile.getValue();
     }
+    /**
+     Si avvia al click del bottone aiuto, esegue la mossa del giocatore automatico
+     */
     private void gameHelp(){
         giocatoreAutomatico.player.MyGiocatoreAutomatico giocatore = new giocatoreAutomatico.player.MyGiocatoreAutomatico();
         giocatoreAutomatico.MyGriglia griglia = new giocatoreAutomatico.MyGriglia();
