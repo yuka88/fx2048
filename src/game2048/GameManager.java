@@ -243,7 +243,7 @@ public class GameManager extends Group {
      */
     private void gameHelp(){
         giocatoreAutomatico.player.MyGiocatoreAutomatico giocatore = new giocatoreAutomatico.player.MyGiocatoreAutomatico();
-        giocatoreAutomatico.MyGriglia griglia = new giocatoreAutomatico.MyGriglia();
+        game2048.MyGriglia griglia = new game2048.MyGriglia();
         for (int i=0; i<=3; i++)
             for(int j=0; j<=3; j++){
                     Location old=new Location(i,j);
