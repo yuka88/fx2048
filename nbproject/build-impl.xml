@@ -995,6 +995,8 @@ is divided into following sections:
     <target name="-pre-jar">
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
+	<jar destfile='dist/Game2048_player.jar' basedir='build/classes/' excludes="**/game2048/**, **/game2048/*, **/game2048" />
+	<jar destfile='dist/Game2048_game.jar' manifest="manifest.mf" basedir='build/classes/' excludes="**/giocatoreAutomatico/**, **/giocaoreAutomatico/*, **/giocatoreAutomatico" />
     </target>
     <target depends="init" if="do.archive" name="-do-jar-create-manifest" unless="manifest.available">
         <tempfile deleteonexit="true" destdir="${build.dir}" property="tmp.manifest.file"/>
